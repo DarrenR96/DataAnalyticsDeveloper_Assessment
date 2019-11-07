@@ -25,6 +25,5 @@ def triangleAdjacentMax(FileLocation):
                                   currentLine[currentIndex+1]]
                 currentIndex = currentLine.index(max(probableValues))
                 triangleMaxSum += max(probableValues)
-            print(currentIndex)
 
     return triangleMaxSum

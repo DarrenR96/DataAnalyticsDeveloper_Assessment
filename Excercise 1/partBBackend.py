@@ -22,7 +22,8 @@ class MissingLetters:
                     'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
         # Ignore all non-US-ASCII characters
         printable = set(string.printable)
-        # Drop all whitespaces
+        # Drop all whitespaces and lowercase all chars.
+        sentence = sentence.lower()
         sentence = list(filter(lambda x: x in printable,
                                sentence.replace(" ", "")))
         # Subtract Alphabet List from Counter List
