@@ -20,20 +20,18 @@ Below shows a screenshot of the program running.
 The function that does the processing of part A can be found in "Exercise 1/partABackend.py". Below shows the uncommented version of the function.
 To view the entire function with comments, inspect the partABackend.py file.
 ```python
-def triangleAdjacentMax(FileLocation):
-    triangleMaxSum = 0
-    currentIndex = 0
-    with open(FileLocation) as fp:
-        for cnt, line in enumerate(fp):
-            currentLine = list(map(int, line.split()))
-            if cnt == 0:
-                triangleMaxSum += currentLine[currentIndex]
-            else:
-                probableValues = [currentLine[currentIndex],
-                                  currentLine[currentIndex+1]]
-                currentIndex = currentLine.index(max(probableValues))
-                triangleMaxSum += max(probableValues)
-    return triangleMaxSum
+def triangleAdjacentMaxDynamic(FileLocation):
+    with open(FileLocation, "r") as fp:
+        lines = [line.strip() for line in fp.readlines()]
+        lines = [line.split() for line in lines]
+        lines = [list(map(int, line)) for line in lines]
+        while len(lines) > 1:
+            for i in range(0, len(lines[-2])):
+                lines[-2][i] = max(lines[-2][i]+lines[-1][i],
+                                   lines[-2][i]+lines[-1][i+1])
+            del lines[-1]
+        maxSum = lines[0][0]
+    return(maxSum)
 ```
 
 ### Part B
