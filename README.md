@@ -1,5 +1,6 @@
 # DataAnalyticsDeveloper_Assessment
 **READ HERE FIRST**
+
 Collection of solved problems 
 
 Programming Env. = Python 3.6 or higher
