@@ -3,7 +3,7 @@
 
 
 from tkinter import *
-from partABackend import triangleAdjacentMax
+from partABackend import triangleAdjacentMaxDynamic
 from partBBackend import MissingLetters
 
 
@@ -12,7 +12,7 @@ def runPartA():
     popupPartA.geometry("400x100")
     popupPartA.title("Results for Part A")
     fileName = partAEntry.get()
-    resultA = triangleAdjacentMax("Data/"+fileName)
+    resultA = triangleAdjacentMaxDynamic("Data/"+fileName)
     popupALabel = Label(popupPartA, text="Source of Data: "+fileName)
     popupALabel.pack()
     resultALabel = Label(popupPartA, text="Optimal Value: "+str(resultA))
