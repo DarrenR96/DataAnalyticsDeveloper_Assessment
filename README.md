@@ -13,7 +13,7 @@ Part B functionality is dependent on the string entered in the GUI window.
 
 Below shows a screenshot of the program running.
 
-[Running Execrise 1](https://i.imgur.com/0DAljik.png)
+![](programcap.gif)
 
 ### Part A 
 
