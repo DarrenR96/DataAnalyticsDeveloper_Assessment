@@ -12,17 +12,23 @@ def triangleAdjacentMaxDynamic(FileLocation):
     # Output =  The pathway satisifying the maximum binary split based on the index of
     #           the preceeding line (after the first line)
 
+    lines = []
+
+    # Read in Text File
     with open(FileLocation, "r") as fp:
         # Remove all formatting characters
         lines = [line.strip() for line in fp.readlines()]
-        # Remove whitespaces
-        lines = [line.split() for line in lines]
-        # Convert from string to numerical
-        lines = [list(map(int, line)) for line in lines]
-        while len(lines) > 1:
-            for i in range(0, len(lines[-2])):
-                lines[-2][i] = max(lines[-2][i]+lines[-1][i],
-                                   lines[-2][i]+lines[-1][i+1])
-            del lines[-1]
-        maxSum = lines[0][0]
+
+    # Remove whitespaces
+    lines = [line.split() for line in lines]
+    # Convert from string to numerical
+    lines = [list(map(int, line)) for line in lines]
+
+    # Find maximum pathway using Dynamic Prog. approach
+    while len(lines) > 1:
+        for i in range(0, len(lines[-2])):
+            lines[-2][i] = max(lines[-2][i]+lines[-1][i],
+                               lines[-2][i]+lines[-1][i+1])
+        del lines[-1]
+    maxSum = lines[0][0]
     return(maxSum)
