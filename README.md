@@ -23,16 +23,17 @@ The function that does the processing of part A can be found in "Exercise 1/part
 To view the entire function with comments, inspect the partABackend.py file.
 ```python
 def triangleAdjacentMaxDynamic(FileLocation):
+    lines = []
     with open(FileLocation, "r") as fp:
         lines = [line.strip() for line in fp.readlines()]
-        lines = [line.split() for line in lines]
-        lines = [list(map(int, line)) for line in lines]
-        while len(lines) > 1:
-            for i in range(0, len(lines[-2])):
-                lines[-2][i] = max(lines[-2][i]+lines[-1][i],
-                                   lines[-2][i]+lines[-1][i+1])
-            del lines[-1]
-        maxSum = lines[0][0]
+    lines = [line.split() for line in lines]
+    lines = [list(map(int, line)) for line in lines]
+    while len(lines) > 1:
+        for i in range(0, len(lines[-2])):
+            lines[-2][i] = max(lines[-2][i]+lines[-1][i],
+                               lines[-2][i]+lines[-1][i+1])
+        del lines[-1]
+    maxSum = lines[0][0]
     return(maxSum)
 ```
 
